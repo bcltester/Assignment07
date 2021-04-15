@@ -63,19 +63,19 @@ form.addEventListener('submit', (e) => {
 
     // INCREMENENT THE NUMBER OF EMPLOYEES IN THE TABLE
     numEmployees++;
-    output.innerText = `(${numEmployees})`;
+    output.innerText = `(${numEmployees})`;         // could also be done as output.value = `(${numEmployees})`;
 });
 
 // DELETE EMPLOYEE
 
 table.addEventListener('click', (e) => {
-    if (e.target.tagName.toLowerCase() === 'button') {
+    if (e.target.tagName.toLowerCase() === 'button') {      // zak used if (e.target.classList.contains('delete')) and added delete class to line 54 above
         // console.log('button clicked');
-        let conf = prompt("Are you sure you want to delete this user? Enter 'y' or 'n':").toLowerCase();
+        let conf = prompt("Are you sure you want to delete this user? Enter 'y' or 'n':").toLowerCase();    //zak used confirm( instead of prompt(
         if (conf === 'y') {
-            table.deleteRow(e.target.parentElement.parentElement.rowIndex);
+            table.deleteRow(e.target.parentElement.parentElement.rowIndex);     //zak used .parentNode.parentNode in his example, but said that .parentElement.parentElement is cleaner because it's part of the HTMLElement interface.
             numEmployees--
-            output.innerText = `(${numEmployees})`;
+            output.innerText = `(${numEmployees})`;     // could also be done as output.value = `(${numEmployees})`;
         }
     }
 });
